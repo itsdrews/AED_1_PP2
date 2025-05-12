@@ -5,13 +5,9 @@ class Node:
         self.name = None
         self.left = None
         self.right = None
-        self.parent = None
 
     def set_name(self, name):
         self.name = name
-
-    def get_name(self):
-        return self.name
 
     def to_string(self):
         return str("Nó "+ self.value +" " + self.name)
