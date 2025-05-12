@@ -59,3 +59,8 @@ class BinaryTree:
             self._post_order_recursive(subtree.left)
             self._post_order_recursive(subtree.right)
             print(subtree.to_string())
+
+    def search(self):
+        return self._search_recursive(self.root,value)
+
+    def _search_recursive(self):
