@@ -34,21 +34,28 @@ class BinaryTree:
         self._pre_order_recursive(self.root)
 
 
-    def _pre_order_recursive(self,node:Node):
-        if node is not None:
-            print(node.to_string())
-            self._pre_order_recursive(node.left)
-            self._pre_order_recursive(node.right)
+    def _pre_order_recursive(self,subtree:Node):
+        if subtree is not None:
+            print(subtree.to_string())
+            self._pre_order_recursive(subtree.left)
+            self._pre_order_recursive(subtree.right)
 
 
 
-    def in_order_traversal(self,subtree):
-        if subtree:
-            self.in_order_traversal(subtree.left)
-            print(subtree.value +" " + subtree.name)
-            self.in_order_traversal(subtree.right)
-    def post_order_traversal(self,subtree):
-        if subtree:
-            self.post_order_traversal(subtree.left)
-            self.post_order_traversal(subtree.right)
-            print(subtree.value + " " + subtree.name)
+    def in_order_traversal(self):
+        self._in_order_recursive(self.root)
+    def _in_order_recursive(self,subtree:Node):
+        if subtree is not None:
+            self._in_order_recursive(subtree.left)
+            print(subtree.to_string())
+            self._in_order_recursive(subtree.right)
+
+
+    def post_order_traversal(self):
+        self._post_order_recursive(self.root)
+
+    def _post_order_recursive(self,subtree:Node):
+        if subtree is not None:
+            self._post_order_recursive(subtree.left)
+            self._post_order_recursive(subtree.right)
+            print(subtree.to_string())
