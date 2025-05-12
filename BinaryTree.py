@@ -11,7 +11,7 @@ class BinaryTree:
             self.root = Node(node.value)
         else:
             print("Já tem raiz")
-            self._insert_recursive(self.root,node.value)
+            self._insert_recursive(self.root,node)
 
     def _insert_recursive(self,current:Node,node:Node):
         if choice([True, False]):
