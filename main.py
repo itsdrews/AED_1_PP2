@@ -41,7 +41,7 @@ def main():
     #setando a raiz da árvore binária
     binary_tree = create_binary_tree(root,file_data) #passando o nó raiz e o vetor para ser setado
 
-    binary_tree.pre_order_traversal(root)
+    binary_tree.pre_order_traversal()
 
 
 
