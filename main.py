@@ -53,11 +53,10 @@ def main():
 
     #**************************************************************
 
-    #setando a raiz da árvore binária
+    #criando árvore binária genérica e aleatória
     #binary_tree = create_binary_tree(file_data) #passando o nó raiz e o vetor para ser setado
     #traverse pre fixado
     #binary_tree.pre_order_traversal()
-    #Tá funcinando
 
     #**************************************************************
     #criando árvore binária de busca
@@ -66,6 +65,7 @@ def main():
     binary_search_tree.pre_order_traversal()
 
     #**************************************************************
+    #criando árvore avl
     #avl_tree = create_avl_tree(file_data)
     #traverse pre fixado
     #avl_tree.pre_order_traversal()
