@@ -5,6 +5,7 @@ class Node:
         self.name = None
         self.left = None
         self.right = None
+        self.height = 1
 
     def set_name(self, name):
         self.name = name

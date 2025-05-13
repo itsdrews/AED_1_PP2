@@ -1,6 +1,7 @@
 from Node import Node
 from BinaryTree import BinaryTree
 class BinarySearchTree(BinaryTree):
+
     #herança de BinaryTree e override do método insert
     def insert(self,node: Node):
         #insere um valor na árvore

@@ -1,5 +1,7 @@
 import csv
 import time
+
+from AVLTree import AVLTree
 from Node import Node
 from BinaryTree import BinaryTree
 from BinarySearchTree import BinarySearchTree
@@ -34,6 +36,15 @@ def create_binary_search_tree(root:Node,arr):
         binary_search_tree.insert(node)
     return binary_search_tree
 
+def create_avl_tree(root:Node,arr):
+    avl_tree = AVLTree()
+    avl_tree.insert(root)
+    for i in range(len(arr)):
+        node = Node(arr[i][0])
+        node.set_name(arr[i][1])
+        avl_tree.insert(node)
+
+    return avl_tree
 def main():
 
     # Para ver o tempo do algoritmo : start = time.time()
@@ -56,20 +67,14 @@ def main():
 
     #**************************************************************
     #criando árvore binária de busca
-    binary_search_tree = create_binary_search_tree(root,file_data)
+   # binary_search_tree = create_binary_search_tree(root,file_data)
     #traverse pre fixado
-    binary_search_tree.pre_order_traversal()
+   # binary_search_tree.pre_order_traversal()
 
-
-
-
-
-
-
-
-
-
-    # Abrindo o arquvio e obtendo as linhas
+    #**************************************************************
+    avl_tree = create_avl_tree(root,file_data)
+    #traverse pre fixado
+    avl_tree.pre_order_traversal()
 
 
 
