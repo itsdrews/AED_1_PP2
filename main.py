@@ -67,11 +67,8 @@ def main():
     #criando árvore avl
     avl_tree = create_avl_tree(file_data)
     #traverse pre fixado
-    avl_tree.pre_order_traversal()
+    #avl_tree.pre_order_traversal()
 
-
-
-  #mudar a implementação dos nós para settar os dados de outar maneira em todas as classes
 
 if __name__ == '__main__':
     main()
