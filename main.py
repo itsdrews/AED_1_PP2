@@ -67,9 +67,9 @@ def main():
 
     #**************************************************************
     #criando árvore binária de busca
-   # binary_search_tree = create_binary_search_tree(root,file_data)
+    #binary_search_tree = create_binary_search_tree(root,file_data)
     #traverse pre fixado
-   # binary_search_tree.pre_order_traversal()
+    #binary_search_tree.pre_order_traversal()
 
     #**************************************************************
     avl_tree = create_avl_tree(root,file_data)

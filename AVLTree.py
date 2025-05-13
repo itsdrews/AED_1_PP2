@@ -4,50 +4,13 @@ from BinaryTree import BinaryTree
 
 
 class AVLTree(BinarySearchTree):
-
-    def insert(self,node:Node):
-        #herda o insert de BST e insere o nó
-        super().insert(node)
-
-        #herda o nó raiz do BinarySearchTree
-        root = super(BinaryTree).root
-
-        #atualiza a altura do nó
-        root.height = 1 + max(self.get_height(root.left),
-                              self.get_height(root.right))
-
-        #fator de balanceamento
-        balance = self.get_balance(root)
-
-        if balance < 1 and node.value < root.left.value:
-            self.rotate_right(root)
-        if balance < -1 and node.value > root.right.value:
-            self.rotate_left(root)
-        if balance > 1 and node.value > root.left.value:
-            root.left = self.rotate_left(root.left)
-            self.rotate_right(root)
-        if balance < -1 and node.value < root.right.value:
-            root.right = self.rotate_right(root.right)
-            self.rotate_left(root)
-
-
-
-
-
-
-
-
-
-
-
-
     def get_height(self,node:Node):
         return self.get_height if node else 0
 
     def get_balance(self,node:Node):
         return abs(self.get_height(node.left) - self.get_height(node.right)) if node else 0
 
-    def rotate_right(self,node:Node):
+    def _rotate_right(self,node:Node):
         print(f"Rodação á direita do {node.to_string()}")
 
         x = node.left
@@ -61,7 +24,7 @@ class AVLTree(BinarySearchTree):
 
         return node
 
-    def rotate_left(self,node:Node):
+    def _rotate_left(self,node:Node):
         print(f"Rodação á esquerda do {node.to_string()}")
         x = node.right
         T2 = x.left
@@ -74,5 +37,34 @@ class AVLTree(BinarySearchTree):
 
         return node
 
-    def update_height(self,node:Node):
-        node.height = 1 + max(self.get_height(node.left),self.get_height(node.right))
+    def _update_height(self,node:Node):
+        node.height = 1 + max(self.get_height(node.left),
+                              self.get_height(node.right))
+    def _balance(self,node:Node,node2:Node):
+        factor = self.get_balance(node)
+
+        #rotacionar para direita
+        if factor >1 and node2.value < node.left.value:
+            return self._rotate_right(node)
+        #rotacionar para a esquerda
+        if factor < -1 and node2.value > node.right.value:
+            return self._rotate_left(node)
+        if factor > 1 and node2.value > node.left.value:
+            node.left = self._rotate_left(node.left)
+            return self._rotate_right(node)
+        if factor < -1 and node2.value < node.right.value:
+            node.right = self._rotate_right(node)
+            return self._rotate_left(node)
+
+        return node
+
+    def _insert_recursive(self,current:Node,node:Node):
+        if node.value < current.value:
+            current.left = self._insert_recursive(current.left,node)
+        elif node.value > current.value:
+            current.right = self._insert_recursive(current.right,node)
+        else:
+            return node
+
+        self._update_height(node)
+        return self._balance(current,node.value)

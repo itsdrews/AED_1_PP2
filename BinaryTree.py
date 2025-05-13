@@ -28,7 +28,7 @@ class BinaryTree:
                 current.right = node
             else:
                 self._insert_recursive(current.right,node)
-
+        return node
 
     def pre_order_traversal(self):
         self._pre_order_recursive(self.root)
@@ -61,6 +61,6 @@ class BinaryTree:
             print(subtree.to_string())
 
     #def search(self):
-        return self._search_recursive(self.root,value)
+        #return self._search_recursive(self.root,value)
 
     #def _search_recursive(self):
