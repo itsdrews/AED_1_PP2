@@ -78,6 +78,7 @@ def main():
 
 
 
+  #mudar a implementação dos nós para settar os dados de outar maneira em todas as classes
 
 if __name__ == '__main__':
     main()
