@@ -1,8 +1,7 @@
 from Node import Node
-class BinarySearchTree:
-    def __init__(self):
-        self.root = None
-
+from BinaryTree import BinaryTree
+class BinarySearchTree(BinaryTree):
+    #herança de BinaryTree e override do método insert
     def insert(self,node: Node):
         #insere um valor na árvore
         if self.root is None:
@@ -27,34 +26,3 @@ class BinarySearchTree:
                 current.right = node
             else:
                 self._insert_recursive(current.right,node)
-
-
-    def pre_order_traversal(self):
-        self._pre_order_recursive(self.root)
-
-
-    def _pre_order_recursive(self,subtree:Node):
-        if subtree is not None:
-            print(subtree.to_string())
-            self._pre_order_recursive(subtree.left)
-            self._pre_order_recursive(subtree.right)
-
-
-
-    def in_order_traversal(self):
-        self._in_order_recursive(self.root)
-    def _in_order_recursive(self,subtree:Node):
-        if subtree is not None:
-            self._in_order_recursive(subtree.left)
-            print(subtree.to_string())
-            self._in_order_recursive(subtree.right)
-
-
-    def post_order_traversal(self):
-        self._post_order_recursive(self.root)
-
-    def _post_order_recursive(self,subtree:Node):
-        if subtree is not None:
-            self._post_order_recursive(subtree.left)
-            self._post_order_recursive(subtree.right)
-            print(subtree.to_string())
