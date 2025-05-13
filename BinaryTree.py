@@ -4,31 +4,32 @@ class BinaryTree:
     def __init__(self):
         self.root = None
 
-    def insert(self,node: Node):
+    def insert(self,key:int,name:str):
         #insere um valor na árvore
         if self.root is None:
             #print("Raizz")
-            self.root = Node(node.value)
-            self.root.set_name(node.name)
+            self.root = Node(key)
+            self.root.set_name(name)
+
         else:
             #print("Já tem raiz")
-            self._insert_recursive(self.root,node)
+            self._insert_recursive(self.root,key,name)
 
-    def _insert_recursive(self,current:Node,node:Node):
+    def _insert_recursive(self,current:Node,key:int,name:str):
         if choice([True, False]):
-            #print("Esquerda")
+            print("Esquerda")
             if current.left is None:
-                current.left = node
+                current.left = Node(key)
+                current.left.set_name(name)
             else:
-                self._insert_recursive(current.left,node)
+                self._insert_recursive(current.left,key,name)
         else:
-            #print("Direita")
+            print("Direita")
             if current.right is None:
-
-                current.right = node
+                current.right = Node(key)
+                current.right.set_name(name)
             else:
-                self._insert_recursive(current.right,node)
-        return node
+                self._insert_recursive(current.right,key,name)
 
     def pre_order_traversal(self):
         self._pre_order_recursive(self.root)

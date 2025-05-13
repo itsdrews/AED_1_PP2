@@ -17,23 +17,21 @@ def get_data(FILE_NAME):
 
     return data
 
-def create_binary_tree(root:Node,arr):
+def create_binary_tree(arr):
 
     binary_tree = BinaryTree()
-    binary_tree.insert(root)
     for i in range(len(arr)):
-        node = Node(arr[i][0])
-        node.set_name(arr[i][1])
-        binary_tree.insert(node)
+        key = arr[i][0]
+        name = arr[i][1]
+        binary_tree.insert(key,name)
     return binary_tree
 
-def create_binary_search_tree(root:Node,arr):
+def create_binary_search_tree(arr):
     binary_search_tree = BinarySearchTree()
-    binary_search_tree.insert(root)
     for i in range(len(arr)):
-        node = Node(arr[i][0])
-        node.set_name(arr[i][1])
-        binary_search_tree.insert(node)
+        key = arr[i][0]
+        name = arr[i][1]
+        binary_search_tree.insert(key,name)
     return binary_search_tree
 
 def create_avl_tree(root:Node,arr):
@@ -53,28 +51,24 @@ def main():
     file_data = get_data(FILE_NAME)
     file_data.pop(0) #removendo os nomes das colunas
 
-    root = Node(file_data[0][0])
-    root.set_name(file_data[0][1])#primeiro valor a ser inserido
-
-    file_data.pop(0) # removendo a raiz do vetor com valores
     #**************************************************************
 
     #setando a raiz da árvore binária
-    #binary_tree = create_binary_tree(root,file_data) #passando o nó raiz e o vetor para ser setado
-
+    #binary_tree = create_binary_tree(file_data) #passando o nó raiz e o vetor para ser setado
     #traverse pre fixado
     #binary_tree.pre_order_traversal()
+    #Tá funcinando
 
     #**************************************************************
     #criando árvore binária de busca
-    #binary_search_tree = create_binary_search_tree(root,file_data)
+    binary_search_tree = create_binary_search_tree(file_data)
     #traverse pre fixado
-    #binary_search_tree.pre_order_traversal()
+    binary_search_tree.pre_order_traversal()
 
     #**************************************************************
-    avl_tree = create_avl_tree(root,file_data)
+    #avl_tree = create_avl_tree(file_data)
     #traverse pre fixado
-    avl_tree.pre_order_traversal()
+    #avl_tree.pre_order_traversal()
 
 
 
