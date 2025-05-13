@@ -34,13 +34,12 @@ def create_binary_search_tree(arr):
         binary_search_tree.insert(key,name)
     return binary_search_tree
 
-def create_avl_tree(root:Node,arr):
+def create_avl_tree(arr):
     avl_tree = AVLTree()
-    avl_tree.insert(root)
     for i in range(len(arr)):
-        node = Node(arr[i][0])
-        node.set_name(arr[i][1])
-        avl_tree.insert(node)
+        key = arr[i][0]
+        name = arr[i][1]
+        avl_tree.insert(key,name)
 
     return avl_tree
 def main():
@@ -60,15 +59,15 @@ def main():
 
     #**************************************************************
     #criando árvore binária de busca
-    binary_search_tree = create_binary_search_tree(file_data)
+    #binary_search_tree = create_binary_search_tree(file_data)
     #traverse pre fixado
-    binary_search_tree.pre_order_traversal()
+    #binary_search_tree.pre_order_traversal()
 
     #**************************************************************
     #criando árvore avl
-    #avl_tree = create_avl_tree(file_data)
+    avl_tree = create_avl_tree(file_data)
     #traverse pre fixado
-    #avl_tree.pre_order_traversal()
+    avl_tree.pre_order_traversal()
 
 
 
