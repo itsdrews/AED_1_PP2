@@ -1,4 +1,3 @@
-from bokeh.models import comparisons
 
 from Node import Node
 from random import choice
@@ -7,7 +6,7 @@ class BinaryTree:
         self.root = None
 
     def insert(self,key:int,name:str):
-        #estabelece o valor de raiz para a árvore inteira
+        # Estabelece o valor de raiz para a árvore inteira
         self.root = self._insert_recursive(self.root,key,name)
 
     def _insert_recursive(self,current:Node,key:int,name:str):
@@ -16,16 +15,14 @@ class BinaryTree:
             new_node.set_name(name)
             return new_node
         if choice([True, False]):
-            #aloca o nó na esquerda
-            #print("Esquerda")
+            # Aloca o nó na esquerda
             if current.left is None:
                 current.left = Node(key)
                 current.left.set_name(name)
             else:
                 self._insert_recursive(current.left,key,name)
         else:
-            #aloca o nó na direita
-            #print("Direita")
+            # Aloca o nó na direita
             if current.right is None:
                 current.right = Node(key)
                 current.right.set_name(name)

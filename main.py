@@ -64,11 +64,11 @@ def main():
 
     # Para ver o tempo do algoritmo :
     start = time.time()
-    #criando árvore binária genérica e aleatória
+    # Criando árvore binária genérica e aleatória
     binary_tree = create_binary_tree(file_data) #passando o nó raiz e o vetor para ser setado
-    #traverse pre fixado
-    binary_tree.pre_order_traversal()
-    #search para ID 100084,Moreira Verde
+    # Traversal pre fixado
+    # Binary_tree.pre_order_traversal()
+    # Search para ID 100084,Moreira Verde
     result,comp = binary_tree.search(100084)
     print("Search para Árvore Binária Aleatória: ")
     check_result(result,comp)
@@ -77,12 +77,12 @@ def main():
     print("*" *30)
 
     #**************************************************************
-    #criando árvore binária de busca
+    # Criando árvore binária de busca
     start = time.time()
     binary_search_tree = create_binary_search_tree(file_data)
-    #traverse pre fixado
-    binary_search_tree.pre_order_traversal()
-    #search para ID 10084, Moreira Verde
+    # Traversal pre fixado
+    #binary_search_tree.pre_order_traversal()
+    # Search para ID 10084, Moreira Verde
     result,comp = binary_search_tree.search(100084)
     print("Search para Árvore Binária de Busca: ")
     check_result(result,comp)
@@ -91,11 +91,11 @@ def main():
     print("*" *30)
 
     #**************************************************************
-    #criando árvore avl
+    # Criando árvore avl
     start = time.time()
     avl_tree = create_avl_tree(file_data)
-    #traverse pre fixado
-    avl_tree.pre_order_traversal()
+    # Traversal pre fixado
+    #avl_tree.pre_order_traversal()
     result, comp = avl_tree.search(100084)
     print("Search para Árvore AVL: ")
     check_result(result, comp)

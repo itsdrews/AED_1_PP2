@@ -2,13 +2,13 @@ from Node import Node
 from BinaryTree import BinaryTree
 class BinarySearchTree(BinaryTree):
 
-
-    #herança de BinaryTree e override do método insert
+    # Herança de BinaryTree 
     def insert(self,key:int,name:str):
-        #para o primeiro nó
+        # Para o primeiro nó
         self.root = self._insert_recursive(self.root,key,name)
 
     def _insert_recursive(self,current:Node,key:int,name:str):
+        # Recursiva para inseração segundo as regras de ABB
         if current is None:
             new_node = Node(key)
             new_node.set_name(name)
@@ -24,11 +24,12 @@ class BinarySearchTree(BinaryTree):
         return current
 
     def search(self,key:int):
-        comparisons = {'count': 0}
+        comparisons = {'count': 0} 
+        # Guarda o valor das comparações 
         result = self._search_recursive(self.root,key,comparisons)
         return result,comparisons
 
-    #Override do método search com uma pequena diferença (distinção entre maior e menor)
+    # Override do método search com uma pequena diferença (distinção entre maior e menor)
     def _search_recursive(self,subtree:Node,key:int,comparisons):
         if subtree is None:
             return None

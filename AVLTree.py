@@ -18,7 +18,7 @@ class AVLTree(BinarySearchTree):
     def _rotate_right(self,y:Node):
         if y is None or y.left is None:
             return y
-        #rotaciona a direita o nó
+        # Rotaciona a direita o nó
         #print(f"Rodação á direita do {y.to_string()}")
 
         x = y.left
@@ -35,7 +35,7 @@ class AVLTree(BinarySearchTree):
     def _rotate_left(self,x:Node):
         if x is None or x.right is None:
             return x
-        #rotaciona o nó a esquerda
+        # Rotaciona o nó a esquerda
         #print(f"Rodação á esquerda do {x.to_string()}")
         y = x.right
         aux = y.left 
@@ -53,12 +53,12 @@ class AVLTree(BinarySearchTree):
         self._update_height(node)
         factor = self.get_balance(node)
 
-        #rotacionando para esquerda
+        # Rotacionando para esquerda
         if factor>1:
             if self.get_balance(node.left) < 0:
                 node.left = self._rotate_left(node.left)
             return self._rotate_right(node)
-        #rotacionando para esquerda
+        # Rotacionando para esquerda
         if factor<-1:
             if self.get_balance(node.right) > 0:
                 node.right = self._rotate_right(node.right)
@@ -79,10 +79,10 @@ class AVLTree(BinarySearchTree):
             current.right = self._insert_recursive(current.right, key, name)
         else:
             pass
-        #atualiza a altura do atual
+        # Atualiza a altura do atual
         self._update_height(current)
 
-        #calcula o fator de balanceamento
+        # Calcula o fator de balanceamento
         factor = self.get_balance(current)
 
         # Esquerda-Esquerda
