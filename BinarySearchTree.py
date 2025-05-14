@@ -5,27 +5,20 @@ class BinarySearchTree(BinaryTree):
 
     #herança de BinaryTree e override do método insert
     def insert(self,key:int,name:str):
-        #insere um valor na árvore para ser a raiz
-        if self.root is None:
-            self.root = Node(key)
-            self.root.set_name(name)
-
-        else:
-            #print("Já tem raiz")
-            self._insert_recursive(self.root,key,name)
+        #para o primeiro nó
+        self.root = self._insert_recursive(self.root,key,name)
 
     def _insert_recursive(self,current:Node,key:int,name:str):
-        if (current.value > key):
-            print("Esquerda")
-            if current.left is None:
-                current.left = Node(key)
-                current.left.set_name(name)
-            else:
-                self._insert_recursive(current.left,key,name)
-        elif(current.value < key):
-            print("Direita")
-            if current.right is None:
-                current.right = Node(key)
-                current.right.set_name(name)
-            else:
-                self._insert_recursive(current.right,key,name)
+        if current is None:
+            new_node = Node(key)
+            new_node.set_name(name)
+            return new_node
+        
+        if key < current.value:
+            current.left = self._insert_recursive(current.left,key,name)
+        elif key > current.value:
+            current.right = self._insert_recursive(current.right,key,name)
+        else:
+            pass
+
+        return current
