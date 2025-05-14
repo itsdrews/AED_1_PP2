@@ -62,16 +62,22 @@ class AVLTree(BinarySearchTree):
 
     #Override na função de inseração recursiva adicionando balanceamento
     def _insert_recursive(self,current:Node,key:str,name:str):
-       if current is None:
-            node = Node(key)
-            node.set_name(name)
-            return node
+        print(f"inserindo{key} nome {name}")
+        if (current.value > key):
+            print("Esquerda")
+            if current.left is None:
+                current.left = Node(key)
+                current.left.set_name(name)
+            else:
+                self._insert_recursive(current.left,key,name)
+        elif(current.value < key):
+            print("Direita")
+            if current.right is None:
+                current.right = Node(key)
+                current.right.set_name(name)
+            else:
+                self._insert_recursive(current.right,key,name)
 
-       if key < current.value:
-           current.left = self._insert_recursive(current.left,key,name)
-       else:
-           current.right = self._insert_recursive(current.right,key,name)
 
-
-       return self._balance(current)
+        return self._balance(current)
 

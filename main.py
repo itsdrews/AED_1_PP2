@@ -32,6 +32,7 @@ def create_binary_search_tree(arr):
         key = arr[i][0]
         name = arr[i][1]
         binary_search_tree.insert(key,name)
+        print(f" valor: {key} {name}")
     return binary_search_tree
 
 def create_avl_tree(arr):
@@ -67,7 +68,7 @@ def main():
     #criando árvore avl
     avl_tree = create_avl_tree(file_data)
     #traverse pre fixado
-    #avl_tree.pre_order_traversal()
+    avl_tree.pre_order_traversal()
 
 
 if __name__ == '__main__':
