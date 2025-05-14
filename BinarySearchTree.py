@@ -22,3 +22,20 @@ class BinarySearchTree(BinaryTree):
             pass
 
         return current
+
+    def search(self,key:int):
+        comparisons = {'count': 0}
+        result = self._search_recursive(self.root,key,comparisons)
+        return result,comparisons
+
+    #Override do método search com uma pequena diferença (distinção entre maior e menor)
+    def _search_recursive(self,subtree:Node,key:int,comparisons):
+        if subtree is None:
+            return None
+        comparisons['count'] += 1
+        if int(subtree.value) == int(key):
+            return subtree
+        elif int(key) < int(subtree.value):
+            return self._search_recursive(subtree.left,key,comparisons)
+        else:
+            return self._search_recursive(subtree.right,key,comparisons)

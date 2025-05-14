@@ -18,7 +18,8 @@ class AVLTree(BinarySearchTree):
     def _rotate_right(self,y:Node):
         if y is None or y.left is None:
             return y
-        print(f"Rodação á direita do {y.to_string()}")
+        #rotaciona a direita o nó
+        #print(f"Rodação á direita do {y.to_string()}")
 
         x = y.left
         aux = x.right 
@@ -34,7 +35,8 @@ class AVLTree(BinarySearchTree):
     def _rotate_left(self,x:Node):
         if x is None or x.right is None:
             return x
-        print(f"Rodação á esquerda do {x.to_string()}")
+        #rotaciona o nó a esquerda
+        #print(f"Rodação á esquerda do {x.to_string()}")
         y = x.right
         aux = y.left 
 
