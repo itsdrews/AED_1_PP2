@@ -57,15 +57,20 @@ def main():
     # Criando árvore binária genérica e aleatória
     binary_tree = create_tree("BINARY",file_data) #passando o nó raiz e o vetor para ser setado
     # Traversal pre fixado
-    # Binary_tree.pre_order_traversal()
+    # binary_tree.pre_order_traversal()
     # Search para ID 100084,Moreira Verde
     result,comp = binary_tree.search(100084)
     print("Search para Árvore Binária Aleatória: ")
     check_result(result,comp)
+    binary_tree.remove(100084)
+    result,comp = binary_tree.search(100084)
+    check_result(result,comp)
+
     finish = time.time()
-    print(f"Tempo para criação e busca em Árvore Binária Aleatória: {finish-start:.15f}")
+    print(f"Tempo para criação e busca em Árvore Binária Aleatória: {finish-start:.15f} segundos")
     print("*" *30)
 
+""""
     #**************************************************************
     # Criando árvore binária de busca
     start = time.time()
@@ -77,7 +82,7 @@ def main():
     print("Search para Árvore Binária de Busca: ")
     check_result(result,comp)
     finish = time.time()
-    print(f"Tempo para criação e busca em Árvore Binária de Busca: {finish-start:.12f}")
+    print(f"Tempo para criação e busca em Árvore Binária de Busca: {finish-start:.15f} segundos")
     print("*" *30)
     #**************************************************************
     # Criando árvore avl
@@ -89,14 +94,14 @@ def main():
     print("Search para Árvore AVL: ")
     check_result(result, comp)
     finish = time.time()
-    print(f"Tempo para criação e busca em Árvore Binária AVL: {finish-start:.12f}")
+    print(f"Tempo para criação e busca em Árvore Binária AVL: {finish-start:.15f} segundos")
     print("*" *30)
 
     #todo adicionar exclusão
     #todo adicionar retorno de traversal por lista para visualizar
 
 
-
+"""
 if __name__ == '__main__':
     main()
 

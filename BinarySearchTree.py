@@ -41,3 +41,14 @@ class BinarySearchTree(BinaryTree):
             return self._search_recursive(subtree.left,key,comparisons)
         else:
             return self._search_recursive(subtree.right,key,comparisons)
+
+    def remove(self,key:int):
+        comparisons = {'count': 0}
+        node = self.search(key)
+        if node[0] is None:
+            print("Não é possível remover este nó (inexistente)")
+            return None
+
+        self.root = self._remove_recursive(self.root,key)
+
+    def _remove_recursive(self,node:Node,key:int):

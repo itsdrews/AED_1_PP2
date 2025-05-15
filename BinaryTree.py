@@ -1,3 +1,4 @@
+from sympy.strategies.core import switch
 
 from Node import Node
 from random import choice
@@ -75,3 +76,49 @@ class BinaryTree:
         if left_result:
             return left_result
         return self._search_recursive(subtree.right,key,comparisons)
+
+    def find_sucessor(self,current:Node):
+        while current.left is not None:
+            current = current.left
+    def remove(self,key:int):
+        node = self.search(key)
+        if node[0] is None:
+            print("Não é possível remover este nó (inexistente)")
+            return None
+
+        self.root = self._remove_recursive(self.root,key)
+
+    def find_sucessor(self, current: Node):
+        while current.left is not None:
+            current = current.left
+
+        return current
+
+
+    def _remove_recursive(self,subtree:Node,key:int):
+        if subtree is None:
+            return None
+
+        if key == subtree.value:
+            # Nó sem filhos (nó folha)
+            if subtree.left is None and subtree.right is None:
+                return None
+
+            # Nó com 1filho
+            elif subtree.left is None:
+                return subtree.right
+            elif subtree.right is None:
+                return subtree.left
+            # Nó com 2 filhos
+            else:
+                sucessor = self.find_sucessor(subtree.right)
+                subtree.value = sucessor.value
+                subtree.right = self._remove_recursive(subtree.right,sucessor.value)
+        else:
+            subtree.left = self._remove_recursive(subtree.left,key)
+            subtree.right = self._remove_recursive(subtree.right,key)
+
+        return subtree
+
+
+
