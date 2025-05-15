@@ -69,7 +69,7 @@ class BinaryTree:
         if subtree is None:
             return None
         comparisons['count'] += 1
-        if int(subtree.value) == int(key):
+        if subtree.value == key:
             return subtree
         left_result = self._search_recursive(subtree.left,key,comparisons)
         if left_result:

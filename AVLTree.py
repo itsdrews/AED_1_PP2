@@ -48,24 +48,6 @@ class AVLTree(BinarySearchTree):
 
         return y
 
-
-    def _balance(self,node:Node):
-        self._update_height(node)
-        factor = self.get_balance(node)
-
-        # Rotacionando para esquerda
-        if factor>1:
-            if self.get_balance(node.left) < 0:
-                node.left = self._rotate_left(node.left)
-            return self._rotate_right(node)
-        # Rotacionando para esquerda
-        if factor<-1:
-            if self.get_balance(node.right) > 0:
-                node.right = self._rotate_right(node.right)
-            return self._rotate_left(node)
-
-        return node
-
     def _insert_recursive(self,current:Node,key:str,name:str):
         
         if current is None:

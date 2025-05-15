@@ -11,4 +11,4 @@ class Node:
         self.name = name
 
     def to_string(self):
-        return str("Nó "+ self.value +" " + self.name)
+        return str(f"Nó {self.value}, nome associado: {self.name}")

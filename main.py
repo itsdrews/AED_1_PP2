@@ -21,7 +21,7 @@ def create_binary_tree(arr):
 
     binary_tree = BinaryTree()
     for i in range(len(arr)):
-        key = arr[i][0]
+        key = int(arr[i][0])
         name = arr[i][1]
         binary_tree.insert(key,name)
     return binary_tree
@@ -29,7 +29,7 @@ def create_binary_tree(arr):
 def create_binary_search_tree(arr):
     binary_search_tree = BinarySearchTree()
     for i in range(len(arr)):
-        key = arr[i][0]
+        key = int(arr[i][0])
         name = arr[i][1]
         binary_search_tree.insert(key,name)
     return binary_search_tree
@@ -37,7 +37,7 @@ def create_binary_search_tree(arr):
 def create_avl_tree(arr):
     avl_tree = AVLTree()
     for i in range(len(arr)):
-        key = arr[i][0]
+        key = int(arr[i][0])
         name = arr[i][1]
         avl_tree.insert(key,name)
 
@@ -73,7 +73,7 @@ def main():
     print("Search para Árvore Binária Aleatória: ")
     check_result(result,comp)
     finish = time.time()
-    print(f"Tempo para criação e busca em Árvore Binária Aleatória: {finish-start:.10f}")
+    print(f"Tempo para criação e busca em Árvore Binária Aleatória: {finish-start:.15f}")
     print("*" *30)
 
     #**************************************************************
@@ -87,9 +87,8 @@ def main():
     print("Search para Árvore Binária de Busca: ")
     check_result(result,comp)
     finish = time.time()
-    print(f"Tempo para criação e busca em Árvore Binária de Busca: {finish-start:.10f}")
+    print(f"Tempo para criação e busca em Árvore Binária de Busca: {finish-start:.12f}")
     print("*" *30)
-
     #**************************************************************
     # Criando árvore avl
     start = time.time()
@@ -100,7 +99,7 @@ def main():
     print("Search para Árvore AVL: ")
     check_result(result, comp)
     finish = time.time()
-    print(f"Tempo para criação e busca em Árvore Binária AVL: {finish-start:.10f}")
+    print(f"Tempo para criação e busca em Árvore Binária AVL: {finish-start:.12f}")
     print("*" *30)
 
     #todo adicionar exclusão
