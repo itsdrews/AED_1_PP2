@@ -70,7 +70,7 @@ def main():
     print(f"Tempo para criação e busca em Árvore Binária Aleatória: {finish-start:.15f} segundos")
     print("*" *30)
 
-""""
+
     #**************************************************************
     # Criando árvore binária de busca
     start = time.time()
@@ -80,6 +80,9 @@ def main():
     # Search para ID 10084, Moreira Verde
     result,comp = binary_search_tree.search(100084)
     print("Search para Árvore Binária de Busca: ")
+    check_result(result,comp)
+    binary_search_tree.remove(100084)
+    result,comp = binary_search_tree.search(100084)
     check_result(result,comp)
     finish = time.time()
     print(f"Tempo para criação e busca em Árvore Binária de Busca: {finish-start:.15f} segundos")
@@ -101,7 +104,7 @@ def main():
     #todo adicionar retorno de traversal por lista para visualizar
 
 
-"""
+
 if __name__ == '__main__':
     main()
 

@@ -1,3 +1,5 @@
+from tenacity import retry_all
+
 from Node import Node
 from BinaryTree import BinaryTree
 class BinarySearchTree(BinaryTree):
@@ -43,7 +45,6 @@ class BinarySearchTree(BinaryTree):
             return self._search_recursive(subtree.right,key,comparisons)
 
     def remove(self,key:int):
-        comparisons = {'count': 0}
         node = self.search(key)
         if node[0] is None:
             print("Não é possível remover este nó (inexistente)")
@@ -51,4 +52,26 @@ class BinarySearchTree(BinaryTree):
 
         self.root = self._remove_recursive(self.root,key)
 
-    def _remove_recursive(self,node:Node,key:int):
+
+    def _remove_recursive(self,subtree:Node,key:int):
+        if subtree is None:
+            return None
+        if key < subtree.value:
+            subtree.left = self._remove_recursive(subtree.left,key)
+        elif key > subtree.value:
+            subtree.right = self._remove_recursive(subtree.right,key)
+        else:
+            # Caso 1: Nó sem filhos
+            if subtree.left is None and subtree.right is None:
+                return None
+            elif subtree.left is None:
+                return subtree.right
+            elif subtree.right is None:
+                return subtree.left
+            else:
+                sucessor = self.find_sucessor(subtree.right)
+                subtree.value = sucessor.value
+                subtree.right = self._remove_recursive(subtree.right,sucessor.value)
+
+        return subtree
+

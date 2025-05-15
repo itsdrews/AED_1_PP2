@@ -86,7 +86,9 @@ class AVLTree(BinarySearchTree):
 
         return current
 
+    def remove(self,key:int):
 
+        node = self.sea
     
     
 

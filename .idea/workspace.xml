@@ -7,9 +7,7 @@
     <list default="true" id="3d6e905c-cb86-49ed-81a5-5e87b11f25ef" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/BinarySearchTree.py" beforeDir="false" afterPath="$PROJECT_DIR$/BinarySearchTree.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BinaryTree.py" beforeDir="false" afterPath="$PROJECT_DIR$/BinaryTree.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/cidades.xlsx" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -124,6 +122,7 @@
       <workItem from="1747315496482" duration="627000" />
       <workItem from="1747319072333" duration="531000" />
       <workItem from="1747323671245" duration="5924000" />
+      <workItem from="1747342592458" duration="655000" />
     </task>
     <servers />
   </component>
