@@ -16,7 +16,7 @@ def get_data(FILE_NAME):
         for line in reader:
             line = list(line)
             data.append(line)
-
+        data.pop(0)
     return data
 
 def create_tree(type,arr):
@@ -49,7 +49,6 @@ def main():
 
     # Pegando os dados do arquvio
     file_data = get_data(FILE_NAME)
-    file_data.pop(0) #removendo os nomes das colunas
 
     #**************************************************************
 
