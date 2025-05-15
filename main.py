@@ -1,6 +1,8 @@
 import csv
 import time
 
+from astropy.table import BST
+
 from AVLTree import AVLTree
 from Node import Node
 from BinaryTree import BinaryTree
@@ -17,31 +19,20 @@ def get_data(FILE_NAME):
 
     return data
 
-def create_binary_tree(arr):
+def create_tree(type,arr):
+    if type == "AVL":
+        tree = AVLTree()
+    elif type == "BST":
+        tree = BinarySearchTree()
+    else:
+        tree = BinaryTree()
 
-    binary_tree = BinaryTree()
     for i in range(len(arr)):
         key = int(arr[i][0])
         name = arr[i][1]
-        binary_tree.insert(key,name)
-    return binary_tree
+        tree.insert(key,name)
+    return tree
 
-def create_binary_search_tree(arr):
-    binary_search_tree = BinarySearchTree()
-    for i in range(len(arr)):
-        key = int(arr[i][0])
-        name = arr[i][1]
-        binary_search_tree.insert(key,name)
-    return binary_search_tree
-
-def create_avl_tree(arr):
-    avl_tree = AVLTree()
-    for i in range(len(arr)):
-        key = int(arr[i][0])
-        name = arr[i][1]
-        avl_tree.insert(key,name)
-
-    return avl_tree
 
 def check_result(result,comp):
     if result:
@@ -65,7 +56,7 @@ def main():
     # Para ver o tempo do algoritmo :
     start = time.time()
     # Criando árvore binária genérica e aleatória
-    binary_tree = create_binary_tree(file_data) #passando o nó raiz e o vetor para ser setado
+    binary_tree = create_tree("BINARY",file_data) #passando o nó raiz e o vetor para ser setado
     # Traversal pre fixado
     # Binary_tree.pre_order_traversal()
     # Search para ID 100084,Moreira Verde
@@ -79,7 +70,7 @@ def main():
     #**************************************************************
     # Criando árvore binária de busca
     start = time.time()
-    binary_search_tree = create_binary_search_tree(file_data)
+    binary_search_tree = create_tree("BST",file_data)
     # Traversal pre fixado
     #binary_search_tree.pre_order_traversal()
     # Search para ID 10084, Moreira Verde
@@ -92,7 +83,7 @@ def main():
     #**************************************************************
     # Criando árvore avl
     start = time.time()
-    avl_tree = create_avl_tree(file_data)
+    avl_tree = create_tree("AVL",file_data)
     # Traversal pre fixado
     #avl_tree.pre_order_traversal()
     result, comp = avl_tree.search(100084)
