@@ -40,7 +40,7 @@ def check_result(result,comp):
         print(f"Valor encontrado! Nome associado: {result.name}, ID: {result.value}")
         print(f"Número de comparações: {comp['count']}")
     else:
-        print("Valor não encontrado")
+        print("Valor não encontrado!")
         print(f"Número de comparações: {comp['count']}")
 
 
@@ -60,7 +60,7 @@ def main():
     # Traversal pre fixado
     # binary_tree.pre_order_traversal()
 
-    # Search para ID 100084,Moreira Verde
+    # Search para ID 100084, Moreira Verde
     print("Search para Árvore Binária Aleatória: ")
 
     result,comp = binary_tree.search(100084)
