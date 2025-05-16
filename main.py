@@ -60,10 +60,14 @@ def main():
     # Traversal pre fixado
     # binary_tree.pre_order_traversal()
 
-
     # Search para ID 100084,Moreira Verde
     print("Search para Árvore Binária Aleatória: ")
 
+    result,comp = binary_tree.search(100084)
+    check_result(result,comp)
+
+    #Remove para AB aleatória
+    binary_tree.remove(100084)
     result,comp = binary_tree.search(100084)
     check_result(result,comp)
 
@@ -87,6 +91,11 @@ def main():
     result,comp = binary_search_tree.search(100084)
     check_result(result,comp)
 
+    # Remove para ABB
+    binary_search_tree.remove(100084)
+    result,comp = binary_search_tree.search(100084)
+    check_result(result,comp)
+
 
     finish = time.time()
     print(f"Tempo para criação e busca em Árvore Binária de Busca: {finish-start:.15f} segundos")
@@ -104,6 +113,11 @@ def main():
 
     result, comp = avl_tree.search(100084)
     check_result(result, comp)
+
+    # Remove para AVL
+    avl_tree.remove(100084)
+    result,comp = avl_tree.search(100084)
+    check_result(result,comp)
 
 
 
