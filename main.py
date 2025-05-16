@@ -67,13 +67,14 @@ def main():
     check_result(result,comp)
 
     #Remove para AB aleatória
+    print("Após a remoção: ")
     binary_tree.remove(100084)
     result,comp = binary_tree.search(100084)
     check_result(result,comp)
 
     finish = time.time()
     print(f"Tempo para criação e busca em Árvore Binária Aleatória: {finish-start:.15f} segundos")
-    print("*" *30)
+    print("*" *60)
 
 
     #**************************************************************
@@ -91,6 +92,7 @@ def main():
     result,comp = binary_search_tree.search(100084)
     check_result(result,comp)
 
+    print("Após a remoção: ")
     # Remove para ABB
     binary_search_tree.remove(100084)
     result,comp = binary_search_tree.search(100084)
@@ -99,7 +101,7 @@ def main():
 
     finish = time.time()
     print(f"Tempo para criação e busca em Árvore Binária de Busca: {finish-start:.15f} segundos")
-    print("*" *30)
+    print("*" *60)
     #**************************************************************
     start = time.time()
 
@@ -115,6 +117,7 @@ def main():
     check_result(result, comp)
 
     # Remove para AVL
+    print("Após a remoção: ")
     avl_tree.remove(100084)
     result,comp = avl_tree.search(100084)
     check_result(result,comp)
@@ -123,7 +126,7 @@ def main():
 
     finish = time.time()
     print(f"Tempo para criação e busca em Árvore Binária AVL: {finish-start:.15f} segundos")
-    print("*" *30)
+    print("*" *60)
 
     #todo adicionar exclusão
     #todo adicionar retorno de traversal por lista para visualizar
