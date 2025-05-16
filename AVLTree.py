@@ -10,7 +10,7 @@ class AVLTree(BinarySearchTree):
         return node.height if node else 0
 
     def get_balance(self,node:Node):
-        return abs(self.get_height(node.left) - self.get_height(node.right)) if node else 0
+        return self.get_height(node.left) - self.get_height(node.right) if node else 0
 
     def _update_height(self, node: Node):
         node.height = 1 + max(self.get_height(node.left),
@@ -70,6 +70,7 @@ class AVLTree(BinarySearchTree):
         if factor < -1 and current.right and current.value < current.right.value:
             current.right = self._rotate_right(current.right)
             return self._rotate_left(current)
+        return current
 
     def _insert_recursive(self,current:Node,key:str,name:str):
         
@@ -85,8 +86,8 @@ class AVLTree(BinarySearchTree):
         else:
             pass
 
-        self._balance(current)
-        return current
+
+        return self._balance(current)
 
     def remove(self,key:int):
 
@@ -117,8 +118,8 @@ class AVLTree(BinarySearchTree):
                 subtree.value = sucessor.value
                 subtree.right = self._remove_recursive(subtree.right,sucessor.value)
 
-        self._balance(subtree)
-        return subtree
+
+        return self._balance(subtree)
     
     
 
