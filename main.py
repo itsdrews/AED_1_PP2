@@ -31,6 +31,11 @@ def create_tree(type,arr):
         key = int(arr[i][0])
         name = arr[i][1]
         tree.insert(key,name)
+    values = []
+    for i in range(len(arr)):
+        value = int(arr[i][0])
+        values.append(value)
+    print(f"min value: {min(values)} e max value: {max(values)}")
     return tree
 
 
@@ -59,11 +64,11 @@ def main():
     # Traversal pre fixado
     # binary_tree.pre_order_traversal()
     # Search para ID 100084,Moreira Verde
-    result,comp = binary_tree.search(100084)
+    #result,comp = binary_tree.search(1039)
     print("Search para Árvore Binária Aleatória: ")
-    check_result(result,comp)
+    #check_result(result,comp)
     binary_tree.remove(100084)
-    result,comp = binary_tree.search(100084)
+    result,comp = binary_tree.search(1039)
     check_result(result,comp)
 
     finish = time.time()
@@ -82,7 +87,7 @@ def main():
     print("Search para Árvore Binária de Busca: ")
     check_result(result,comp)
     binary_search_tree.remove(100084)
-    result,comp = binary_search_tree.search(100084)
+    result,comp = binary_search_tree.search(998598)
     check_result(result,comp)
     finish = time.time()
     print(f"Tempo para criação e busca em Árvore Binária de Busca: {finish-start:.15f} segundos")
@@ -93,7 +98,7 @@ def main():
     avl_tree = create_tree("AVL",file_data)
     # Traversal pre fixado
     #avl_tree.pre_order_traversal()
-    result, comp = avl_tree.search(100084)
+    result, comp = avl_tree.search(998598)
     print("Search para Árvore AVL: ")
     check_result(result, comp)
     finish = time.time()

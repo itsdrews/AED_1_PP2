@@ -1,6 +1,6 @@
 from BinarySearchTree import BinarySearchTree
 from Node import Node
-from BinaryTree import BinaryTree
+
 
 
 class AVLTree(BinarySearchTree):
@@ -47,6 +47,29 @@ class AVLTree(BinarySearchTree):
         self._update_height(y)
 
         return y
+    def _balance(self,current:Node):
+        # Atualiza a altura do atual
+        self._update_height(current)
+
+        # Calcula o fator de balanceamento
+        factor = self.get_balance(current)
+
+        # Esquerda-Esquerda
+        if factor > 1 and current.left and current.value < current.left.value:
+            return self._rotate_right(current)
+
+        # Direita-Direita
+        if factor < -1 and current.right and current.value > current.right.value:
+            return self._rotate_left(current)
+
+        # Esquerda-Direita
+        if factor > 1 and current.left and current.value > current.left.value:
+            current.left = self._rotate_left(current.left)
+            return self._rotate_right(current)
+        # Direita-Esquerda
+        if factor < -1 and current.right and current.value < current.right.value:
+            current.right = self._rotate_right(current.right)
+            return self._rotate_left(current)
 
     def _insert_recursive(self,current:Node,key:str,name:str):
         
@@ -61,34 +84,41 @@ class AVLTree(BinarySearchTree):
             current.right = self._insert_recursive(current.right, key, name)
         else:
             pass
-        # Atualiza a altura do atual
-        self._update_height(current)
 
-        # Calcula o fator de balanceamento
-        factor = self.get_balance(current)
-
-        # Esquerda-Esquerda
-        if factor > 1 and current.left and key < current.left.value:
-            return self._rotate_right(current)
-
-        # Direita-Direita
-        if factor < -1 and current.right and key > current.right.value:
-            return self._rotate_left(current)
-
-        # Esquerda-Direita
-        if factor > 1 and current.left and key > current.left.value:
-            current.left = self._rotate_left(current.left)
-            return self._rotate_right(current)
-        # Direita-Esquerda
-        if factor < -1 and current.right and key < current.right.value:
-            current.right = self._rotate_right(current.right)
-            return self._rotate_left(current)
-
+        self._balance(current)
         return current
 
     def remove(self,key:int):
 
-        node = self.sea
+        node = self.search(key)
+        if node[0] is None:
+            print("Não é possível remover este nó (inexistente)")
+            return None
+
+        self.root = self._remove_recursive(self.root,key)
+
+    def _remove_recursive(self,subtree:Node,key:int):
+        if subtree is None:
+            return None
+        if key < subtree.value:
+            subtree.left = self._remove_recursive(subtree.left,key)
+        elif key > subtree.value:
+            subtree.right = self._remove_recursive(subtree.right,key)
+        else:
+            # Caso 1: Nó sem filhos
+            if subtree.left is None and subtree.right is None:
+                return None
+            elif subtree.left is None:
+                return subtree.right
+            elif subtree.right is None:
+                return subtree.left
+            else:
+                sucessor = self.find_sucessor(subtree.right)
+                subtree.value = sucessor.value
+                subtree.right = self._remove_recursive(subtree.right,sucessor.value)
+
+        self._balance(subtree)
+        return subtree
     
     
 
