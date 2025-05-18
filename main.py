@@ -1,7 +1,6 @@
 import csv
 import time
 
-from astropy.table import BST
 
 from AVLTree import AVLTree
 from Node import Node
